@@ -18,17 +18,17 @@
     (fn [post] [:h2 {:class "post"} (h (:body post))])
     posts)])
 (defn display-index []
-  [:div {:class ""}
-   (map(fn [post] [:h2 {:class "index"} (h (:body post))]))])
+  [:div {:class "index"}
+   [:h2 {:class "index"} "hejsan"]])
 
 (defn index []
-  (layout/common "POSTS"
+  (layout/common "eikrt website"
                 ;; (post-form)
                  [:div {:class "clear"}]
                  (display-index)))
 
 (defn blog [posts]
-  (layout/common "POSTS"
+  (layout/common "blog"
                 ;; (post-form)
                  [:div {:class "clear"}]
                  (display-posts posts)))

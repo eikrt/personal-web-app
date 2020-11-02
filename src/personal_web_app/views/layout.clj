@@ -12,7 +12,7 @@
     (h/include-css "/stylesheets/style.css")]
    [:body
     [:div {:id "header"}
-     [:h1 {:class "container"} "eikrt website"]]
+     [:h1 {:class "container"} "eikrt website"] [:a {:href "/blog"} "pumetti"]]
     [:div {:id "content" :class "container"} body]]))
 
 (defn not-found []
