@@ -9,8 +9,15 @@
 (defn index []
   (view/index))
 
-(defn blog []
- (view/blog (model/all)))
+
+(defn computer []
+ (view/computer))
+(defn cooking []
+ (view/cooking))
+(defn other []
+ (view/other))
+(defn about []
+ (view/about))
 (defn create
   [post]
   (when-not (str/blank? post)
@@ -18,6 +25,9 @@
   (ring/redirect "/"))
 
 (defroutes routes
-  (GET  "/" [] (index))
-  (GET "/blog" [] (blog))
+  (GET "/" [] (index))
+  (GET "/computer" [] (computer))
+  (GET "/cooking" [] (cooking))
+  (GET "/other" [] (other))
+  (GET "/about" [] (about))
   (POST "/" [post] (create post)))

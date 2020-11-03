@@ -17,9 +17,24 @@
    (map
     (fn [post] [:h2 {:class "post"} (h (:body post))])
     posts)])
+
 (defn display-index []
   [:div {:class "index"}
-   [:h2 {:class "index"} "hejsan"]])
+   [:p {:class "index"} "Welcome to my website! I host here some of my personal projects, texts and other things!"]])
+(defn display-computer []
+  [:div {:class "index"}
+   [:p {:class "index"} "Latest posts on computers: "]])
+(defn display-cooking []
+  [:div {:class "index"}
+   [:p {:class "index"} "Latest posts on cooking: "]])
+
+(defn display-other []
+  [:div {:class "index"}
+   [:p {:class "index"} "Miscellineous posts come here :-)"]])
+
+(defn display-about []
+  [:div {:class "index"}
+   [:p {:class "index"} "I study data and information technology in the University of Turku. I'm interested in many things related to computers, movies and music!"] [:p {class "index"} "e-mail: e.i.korte@gmail.com"] [:p {class "index"} "source code of this page:"] [:a {:class "index" :href "https://github.com/eikrt/personal-web-app"} "https://github.com/eikrt/personal-web-app"]])
 
 (defn index []
   (layout/common "eikrt website"
@@ -27,8 +42,23 @@
                  [:div {:class "clear"}]
                  (display-index)))
 
-(defn blog [posts]
+(defn computer []
+  (layout/common "computer"
+                ;; (post-form)
+                 [:div {:class "clear"}]
+                 (display-computer )))
+(defn cooking []
+  (layout/common "cooking"
+                ;; (post-form)
+                 [:div {:class "clear"}]
+                 (display-cooking )))
+(defn other []
+  (layout/common "other"
+                ;; (post-form)
+                 [:div {:class "clear"}]
+                 (display-other )))
+(defn about []
   (layout/common "blog"
                 ;; (post-form)
                  [:div {:class "clear"}]
-                 (display-posts posts)))
+                 (display-about )))

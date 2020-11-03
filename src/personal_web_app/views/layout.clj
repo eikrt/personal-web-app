@@ -1,5 +1,6 @@
 (ns personal-web-app.views.layout
-  (:require [hiccup.page :as h]))
+  (:require [hiccup.page :as h])
+  )
 
 (defn common [title & body]
   (h/html5
@@ -12,7 +13,10 @@
     (h/include-css "/stylesheets/style.css")]
    [:body
     [:div {:id "header"}
-     [:h1 {:class "container"} "eikrt website"] [:a {:href "/blog"} "pumetti"]]
+     [:div {:id "header_box"}
+      [:h1 {:class "container"} [:a {:href "/" :id "stamp"} "eikrt blog: "] [:a {:href "/computer"} "computer stuff"] [:a {:href "/cooking"} "cooking"] [:a {:href "/other"} "other"] [:a {:href "/about"} "about me"] ]]]
+
+    
     [:div {:id "content" :class "container"} body]]))
 
 (defn not-found []
