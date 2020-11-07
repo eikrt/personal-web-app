@@ -15,7 +15,9 @@
                         (sql/create-table-ddl
                          :posts
                          [[:id :serial "PRIMARY KEY"]
-                         [:body :varchar "NOT NULL"]
+                          [:body :varchar "NOT NULL"]
+                          [:category :varchar "NOT NULL"]
+                          [:title :varchar "NOT NULL"]
                          [:created_at :timestamp
                           "NOT NULL" "DEFAULT CURRENT_TIMESTAMP"]]))
     (println " done")))

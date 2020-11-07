@@ -7,27 +7,30 @@
 
 
 (defn index []
-  (view/index))
-
+  (view/index (model/all)))
+(defn post-route []
+(view/post (model/all)))
 
 (defn computer []
- (view/computer))
+ (view/computer [(model/computer) "pumpeti" "imuri"] ))
 (defn cooking []
- (view/cooking))
+ (view/cooking (model/cooking)))
 (defn other []
- (view/other))
+ (view/other (model/other)))
 (defn about []
  (view/about))
 (defn create
   [post]
-  (when-not (str/blank? post)
+  (when-not (str/blank? (first post))
     (model/create post))
   (ring/redirect "/"))
 
 (defroutes routes
   (GET "/" [] (index))
+  (POST "/post" [post] (create post))
   (GET "/computer" [] (computer))
   (GET "/cooking" [] (cooking))
   (GET "/other" [] (other))
   (GET "/about" [] (about))
-  (POST "/" [post] (create post)))
+  (GET "/post" [] (post-route))
+  )

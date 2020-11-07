@@ -36,8 +36,8 @@
 
   [:div {:class "computer-posts"}
    (map
-    (fn [post] [:p {:class "post"} [:p (second posts)  (nth posts 2)][:p "-----------------------------------------\n"][:p (h (:body post))]])
-    (first posts))])
+    (fn [post] [:p {:class "post"} [(second posts)  (nth posts 2)"][:p "-----------------------------------------"][:p (h (:body post))]])
+    first posts)])
 
 (defn display-cooking [posts]
   [:div {:class "index"}
