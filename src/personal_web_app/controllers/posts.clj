@@ -12,7 +12,7 @@
 (view/post (model/all)))
 
 (defn computer []
- (view/computer [(model/computer) "pumpeti" "imuri"] ))
+ (view/computer [(model/computer)] ))
 (defn cooking []
  (view/cooking (model/cooking)))
 (defn other []

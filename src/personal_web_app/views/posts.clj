@@ -2,7 +2,8 @@
   (:require [personal-web-app.views.layout :as layout]
             [hiccup.core :refer [h]]
             [hiccup.form :as form]
-            [ring.util.anti-forgery :as anti-forgery]))
+            [ring.util.anti-forgery :as anti-forgery]
+            [clojure.string :as str]))
 
 (defn post-form []
   [:div {:id "post-form" :class "sixteen columns alpha omega"}
@@ -36,7 +37,12 @@
 
   [:div {:class "computer-posts"}
    (map
-    (fn [post] [:p {:class "post"} [:p (second posts)  (nth posts 2)][:p "-----------------------------------------\n"][:p (h (:body post))]])
+    (fn [post] [:p {:class "post"}
+                [:h1 (h(:title post)) "    "][:p (h (first (str/split (str (:created_at post)) #"\.")))]
+                [:p "-------------------------------------------------------------------------"]
+                [:p (h (:body post))]
+                [:p "-------------------------------------------------------------------------"]]
+      )
     (first posts))])
 
 (defn display-cooking [posts]
@@ -50,7 +56,7 @@
 
 (defn display-other [posts]
   [:div {:class "index"}
-   [:p {:class "index"} "Miscellineous posts come here :-)"]]
+   [:p {:class "index"} ""]]
 
   [:div {:class "posts sixteen columns alpha omega"}
    (map

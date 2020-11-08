@@ -10,7 +10,7 @@
 
 (defn migrate []
   (when (not (migrated?))
-    (print "Creating database structure...") (flush)
+    (print "Creating database structure") (flush)
     (sql/db-do-commands post/spec
                         (sql/create-table-ddl
                          :posts
@@ -20,4 +20,4 @@
                           [:title :varchar "NOT NULL"]
                          [:created_at :timestamp
                           "NOT NULL" "DEFAULT CURRENT_TIMESTAMP"]]))
-    (println " done")))
+    (println "done")))

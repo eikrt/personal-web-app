@@ -15,7 +15,15 @@
 
   (into [] (sql/query spec ["select * from posts where category = 'cooking' order by id desc"])))
 (defn other []
+  
   (into [] (sql/query spec ["select * from posts where category = 'other' order by id desc"])))
+(defn title []
+  
+  (into [] (sql/query spec ["select * from posts where category = 'other' order by id desc"])))
+  )
+(defn date []
 
+  (into [] (sql/query spec ["select * from posts where category = 'other' order by id desc"])))
+)
 (defn create [post]
   (sql/insert-multi! spec :posts [{:body (first post) :category (second post) :title (nth post 2)}]) )
