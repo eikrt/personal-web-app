@@ -2,6 +2,7 @@
   (:require [personal-web-app.views.layout :as layout]
             [hiccup.core :refer [h]]
             [hiccup.form :as form]
+            
             [ring.util.anti-forgery :as anti-forgery]
             [clojure.string :as str]))
 
@@ -28,6 +29,25 @@
     (fn [post] [:p {:class "post"} (h (:body post))])
     posts)])
 
+(defn display-login []
+  [:div {:id "login-form" }
+  (form/form-to [:post "/login"]
+   (anti-forgery/anti-forgery-field)
+   (form/text-field "post")
+   (form/password-field "post")
+   (form/submit-button "submit"))
+  ])
+  ;[:div {:class "index"}
+   ;[:li [:a {:href "/"} "Home"]]
+   ; [:li [:a {:href "/login/"} "Login"]]
+   ; [:li [:a {:href "/admin/"} "Admin"]]]
+   ;[:form
+   ; {:method "post", :action "/login/"}
+   ; [:label {:for "username"} "Username:"]
+   ; [:input {:name "username", :type "text"}]
+   ; [:label {:for "password"} "Password:"]
+   ; [:input {:name "password", :type "password"}]
+   ; [:input {:value "Sign In", :type "submit"}]])
 (defn display-index []
   [:div {:class "index"}
    [:p {:class "index"} "Welcome to my website! I host here some of my personal projects, texts and other things!"]])
@@ -46,32 +66,48 @@
     (first posts))])
 
 (defn display-cooking [posts]
-  [:div {:class "index"}
-   [:p {:class "index"} "Latest posts on cooking: "]]
+  [:div {:class "display-computer"}
+   [:h2 {:class "intro"} "Latest posts on cooking: "]]
 
-  [:div {:class "posts sixteen columns alpha omega"}
+  [:div {:class "cooking-posts"}
    (map
-    (fn [post][:p {:class "post"} (h (:body post))])
-    posts)])
-
+    (fn [post] [:p {:class "post"}
+                [:h1 (h(:title post)) "    "][:p (h (first (str/split (str (:created_at post)) #"\.")))]
+                [:p "-------------------------------------------------------------------------"]
+                [:p (h (:body post))]
+                [:p "-------------------------------------------------------------------------"]]
+      )
+    (first posts))])
 (defn display-other [posts]
-  [:div {:class "index"}
-   [:p {:class "index"} ""]]
+  [:div {:class "display-computer"}
+   [:h2 {:class "intro"} "Latest posts on other things: "]]
 
-  [:div {:class "posts sixteen columns alpha omega"}
+  [:div {:class "other-posts"}
    (map
-    (fn [post] [:p {:class "post"} (h (:body post))])
-    posts)])
+    (fn [post] [:p {:class "post"}
+                [:h1 (h(:title post)) "    "][:p (h (first (str/split (str (:created_at post)) #"\.")))]
+                [:p "-------------------------------------------------------------------------"]
+                [:p (h (:body post))]
+                [:p "-------------------------------------------------------------------------"]]
+      )
+    (first posts))])
 
 (defn display-about []
   [:div {:class "index"}
    [:p {:class "index"} "I study information and communication technology in the University of Turku. I'm interested in many things related to computers, movies and music!"] [:p {class "index"} "e-mail: e.i.korte@gmail.com"] [:p {class "index"} "source code of this page:"] [:a {:class "index" :href "https://github.com/eikrt/personal-web-app"} "https://github.com/eikrt/personal-web-app"]])
+
 
 (defn index [posts]
   (layout/common "posts"
                  ;; (post-form)
                  [:div {:class "clear"}]
                  (display-index)))
+
+(defn login [posts]
+  (layout/common "posts"
+                 ;; (post-form)
+                 [:div {:class "clear"}]
+                 (display-login)))
 
 (defn computer [posts]
   (layout/common "computer"

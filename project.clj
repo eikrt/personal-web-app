@@ -10,5 +10,6 @@
                  [ring/ring-jetty-adapter "1.4.0"]
                  [ring/ring-defaults "0.1.2"]
                  [compojure "1.4.0"]
-                 [hiccup "1.0.5"]]
+                 [hiccup "1.0.5"]
+                 [buddy "2.0.0"]]
   :repl-options {:init-ns personal-web-app.web})
