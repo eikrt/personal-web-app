@@ -74,35 +74,35 @@
    [:p {:class "index"} "I study information and communication technology in the University of Turku. I'm interested in many things related to computers, movies and music!"] [:p {class "index"} "e-mail: e.i.korte@gmail.com"] [:p {class "index"} "source code of this page:"] [:a {:class "index" :href "https://github.com/eikrt/personal-web-app"} "https://github.com/eikrt/personal-web-app"]])
 
 (defn index [posts]
-  (layout/common "posts"
+  (layout/common "eikrt"
                  ;; (post-form)
                  [:div {:class "clear"}]
                  (display-index)))
 
 
 (defn computer [posts]
-  (layout/common "computer"
+  (layout/common "eikrt"
                 ;; (post-form)
                  [:div {:class "clear"}]
 
                  [:h1 "Latest posts on computers: "]
                  (display-computer posts)))
 (defn cooking [posts]
-  (layout/common "cooking"
+  (layout/common "eikrt"
                 ;; (post-form)
                  [:div {:class "clear"}]
 
                  [:h1 "Latest posts on cooking: "]
                  (display-cooking posts)))
 (defn other [posts]
-  (layout/common "other"
+  (layout/common "eikrt"
                 ;; (post-form)
                  [:div {:class "clear"}]
 
                  [:h1 "Latest posts on other things: "]
                  (display-other posts)))
 (defn about []
-  (layout/common "blog"
+  (layout/common "eikrt"
                 ;; (post-form)
                  [:div {:class "clear"}]
                  (display-about)))

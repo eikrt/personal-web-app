@@ -31,5 +31,6 @@
   (schema/migrate)
   (let [port (Integer. (or (System/getenv "PORT") "8223"))]
     (crud-server port)))
-(defn -main []
-  (start-server))
+(defn -main [target]
+  (if (= target "crud")
+    (start-crud) (start-server)))

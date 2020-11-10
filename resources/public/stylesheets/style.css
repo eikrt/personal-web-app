@@ -7,7 +7,7 @@ body {
     padding-top: 16px;
     padding-left: 64px; 
     width:100%;
-    height:100px;
+    height:128px;
 }
 p {
     padding: 22px;
@@ -15,9 +15,22 @@ p {
     font-size: 18px;
     color: lightpink;
 }
+#header_box h1{
+    padding-top: 16px;
+}
+#content a{
+    padding:22px;
+}
+#content h1 {
+    padding:22px;
+}
+#content a:link {
+    color: orchid;
+}
 #stamp {
     color: pink;
 }
+
 a {
     
     font-family: Monaco, monospace;
@@ -30,7 +43,7 @@ h1 {
 }
 a:link {
     
-    padding: 32px;
+    padding: 22px;
     color: darkorchid;
     text-decoration: none;
 }

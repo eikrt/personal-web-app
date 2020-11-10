@@ -11,5 +11,13 @@
                  [ring/ring-defaults "0.1.2"]
                  [compojure "1.4.0"]
                  [hiccup "1.0.5"]
-                 [buddy "2.0.0"]]
-  :repl-options {:init-ns personal-web-app.web})
+                 ]
+  :repl-options {:init-ns personal-web-app.web}
+:main ^:skip-aot personal-web-app.web
+:uberjar-name "app.jar"
+:ring {:handler personal-web-app/server
+       :init personal-web-app/migration/migrate}
+:profiles {:dev {:dependencies [[javax.servlet/servlet-api "2.5"]
+                                [ring-mock "0.1.5"]]}
+           :uberjar {:aot :all}}
+)

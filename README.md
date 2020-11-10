@@ -1,18 +1,14 @@
-# personal-web-app
-
-## front
-
-## back
-
-## db
+# Personal web-app
 
 ## Usage
 
-FIXME
+
+## Dependencies
+in project.clj
 
 ## License
 
-Copyright © 2020 FIXME
+Copyright © 2020 
 
 This program and the accompanying materials are made available under the
 terms of the Eclipse Public License 2.0 which is available at
