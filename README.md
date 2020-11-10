@@ -3,7 +3,7 @@
 ## Usage
 
 Deployment: lein uberjar.
-Developement: anything you like eg. lein repl, cider etc.
+Development: anything you like eg. lein repl, cider etc.
 
 ## Dependencies
 
