@@ -1,6 +1,6 @@
 (ns personal-web-app.models.migration
   (:require [clojure.java.jdbc :as sql]
-            [personal-web-app.models.post :as post]))
+            [personal-web-app.models.query :as post]))
 
 (defn migrated? []
   (-> (sql/query post/spec
@@ -18,6 +18,6 @@
                           [:body :varchar "NOT NULL"]
                           [:category :varchar "NOT NULL"]
                           [:title :varchar "NOT NULL"]
-                         [:created_at :timestamp
-                          "NOT NULL" "DEFAULT CURRENT_TIMESTAMP"]]))
+                          [:created_at :timestamp
+                           "NOT NULL" "DEFAULT CURRENT_TIMESTAMP"]]))
     (println "done")))
