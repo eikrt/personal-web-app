@@ -2,8 +2,11 @@
 
 ## Usage
 
+Deployment: lein uberjar.
+Developement: anything you like eg. lein repl, cider etc.
 
 ## Dependencies
+
 in project.clj
 
 ## License
