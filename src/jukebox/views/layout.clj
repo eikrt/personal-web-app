@@ -1,4 +1,4 @@
-(ns personal-web-app.views.layout
+(ns jukebox.views.layout
   (:require [hiccup.page :as h]))
 
 (defn common [title & body]
@@ -13,7 +13,7 @@
    [:body
     [:div {:id "header"}
      [:div {:id "header_box"}
-      [:h1 {:class "container"} [:a {:href "/" :id "stamp"} "eikrt blog: "] [:a {:href "/computer"} "computer stuff"] [:a {:href "/cooking"} "cooking"] [:a {:href "/other"} "other"] [:a {:href "/about"} "about me"]]]]
+      [:h1 {:class "container"} [:a {:href "/" :id "stamp"} "Jukebox"]]]]
 
     [:div {:id "content" :class "container"} body]]))
 
