@@ -22,5 +22,15 @@
   (let [port (Integer. (or (System/getenv "PORT") "8222"))]
     (server port)))
 
+<<<<<<< HEAD:src/jukebox/web.clj
 (defn -main [& args]
      (start-server))
+=======
+(defn start-crud []
+  (schema/migrate)
+  (let [port (Integer. (or (System/getenv "PORT") "8223"))]
+    (crud-server port)))
+(defn -main [target]
+  (if (= target "crud")
+    (start-crud) (start-server)))
+>>>>>>> parent of 38fef46... added main function to take variadic args instead of fixed one:src/personal_web_app/web.clj
