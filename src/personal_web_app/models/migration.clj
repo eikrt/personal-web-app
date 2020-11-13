@@ -1,4 +1,4 @@
-(ns jukebox.models.migration
+(ns personal-web-app.models.migration
   (:require [clojure.java.jdbc :as sql]
             [personal-web-app.models.query :as post]))
 

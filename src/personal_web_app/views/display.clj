@@ -28,24 +28,6 @@
     (fn [post] [:p {:class "post"} (h (:body post))])
     posts)])
 
-(defn display-login []
-  [:div {:id "login-form"}
-   ;(form/form-to [:post "/login"]
-    ;             (anti-forgery/anti-forgery-field)
-     ;            (form/text-field "post")
-      ;           (form/password-field "post")
-       ;          (form/submit-button "submit"))])
-  [:div {:class "index"}
-   [:li [:a {:href "/"} "Home"]]
-    [:li [:a {:href "/login/"} "Login"]]
-    [:li [:a {:href "/admin/"} "Admin"]]]
-   [:form
-    {:method "post", :action "/login"}
-    [:label {:for "username"} "Username:"]
-    [:input {:name "username", :type "text"}]
-    [:label {:for "password"} "Password:"]
-    [:input {:name "password", :type "password"}]
-    [:input {:value "Sign In", :type "submit"}]]])
 (defn display-index []
   [:div {:class "index"}
    [:p {:class "index"} "Welcome to my website! I host here some of my personal projects, texts and other things!"]])
@@ -92,40 +74,35 @@
    [:p {:class "index"} "I study information and communication technology in the University of Turku. I'm interested in many things related to computers, movies and music!"] [:p {class "index"} "e-mail: e.i.korte@gmail.com"] [:p {class "index"} "source code of this page:"] [:a {:class "index" :href "https://github.com/eikrt/personal-web-app"} "https://github.com/eikrt/personal-web-app"]])
 
 (defn index [posts]
-  (layout/common "posts"
+  (layout/common "eikrt"
                  ;; (post-form)
                  [:div {:class "clear"}]
                  (display-index)))
 
-(defn login [posts]
-  (layout/common "posts"
-                 ;; (post-form)
-                 [:div {:class "clear"}]
-                 (display-login)))
 
 (defn computer [posts]
-  (layout/common "computer"
+  (layout/common "eikrt"
                 ;; (post-form)
                  [:div {:class "clear"}]
 
                  [:h1 "Latest posts on computers: "]
                  (display-computer posts)))
 (defn cooking [posts]
-  (layout/common "cooking"
+  (layout/common "eikrt"
                 ;; (post-form)
                  [:div {:class "clear"}]
 
                  [:h1 "Latest posts on cooking: "]
                  (display-cooking posts)))
 (defn other [posts]
-  (layout/common "other"
+  (layout/common "eikrt"
                 ;; (post-form)
                  [:div {:class "clear"}]
 
                  [:h1 "Latest posts on other things: "]
                  (display-other posts)))
 (defn about []
-  (layout/common "blog"
+  (layout/common "eikrt"
                 ;; (post-form)
                  [:div {:class "clear"}]
                  (display-about)))
