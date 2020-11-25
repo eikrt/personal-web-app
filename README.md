@@ -3,7 +3,9 @@
 ## Usage
 
 Deployment: lein uberjar.
-Development: anything you like eg. lein repl, cider etc.
+
+Different instances for application and for crud. set "crud" as launch parameter, if you want to launch the crud instance
+
 
 ## Dependencies
 
